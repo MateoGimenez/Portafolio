@@ -1,0 +1,38 @@
+---
+import proyectos from "../data/proyectos.json"
+---
+
+<div class="bg-stone-950 min-h-screen p-8 text-white">
+    <h1 class="text-4xl text-red-500 font-bold text-center mb-8">Mis Proyectos</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {proyectos.proyectos.map((proyecto, index: number) => (
+        <div  class="bg-stone-800 p-6 rounded-lg shadow-lg hover:bg-red-950">
+          <h2 class="text-2xl font-semibold mb-2">{proyecto.name}</h2>
+          <p class="text-gray-400 mb-4">{proyecto.descripcion}</p>
+          {proyecto.video && (
+            <video class="w-full rounded-md" controls>
+              <source src={proyecto.video} type="video/mp4" />
+              Tu navegador no soporta la reproducción de video.
+            </video>
+          )}
+          {proyecto.image &&(
+            <img class="w-full rounded-md mb-4" src={proyecto.image} alt="Bot WhatsApp" />
+          )}
+            <div class="mb-4">
+            <h3 class="text-lg font-medium text-red-400">Tecnologías:</h3>
+            <div class="flex flex-wrap gap-2 mt-2">
+              {proyecto.tecnologias.map((tech, techIndex) => (
+                <span
+                  class="bg-red-500 text-white text-sm px-3 py-1 rounded-full"
+                >
+                  {tech.name}
+                </span>
+              ))}
+            </div>
+            <a href={proyecto.git}><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="git"
+            class="w-10 h-10 rounded-full shadow-md transition-transform duration-300 hover:scale-110 mt-3"></a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>

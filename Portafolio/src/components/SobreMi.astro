@@ -1,0 +1,56 @@
+---
+import perfil from '../assets/imgCurriculum.jpg';
+import linkedin from '../assets/linkedinlogo.jpg';
+---
+<div class="bg-stone-950 text-white min-h-screen flex items-center justify-center p-8">
+  <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+    
+    <!-- Imagen de perfil -->
+    <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
+      <img
+        src={perfil.src}
+        alt="Imagen de Perfil"
+        class="w-full h-full object-cover rounded-full border-4 border-red-500 shadow-lg transition-transform duration-300 hover:scale-105"
+      />
+    </div>
+
+    <!-- Texto "Sobre mí" -->
+    <div class="flex-1 text-center md:text-left">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-red-500">Sobre mí</h1>
+      <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
+        Hola 👋, soy 
+      </p>
+      <h1 class="text-white font-bold text-5xl mb-2">
+        Gimenez Jorge Mateo
+      </h1>
+      <h2 class="text-xl text-gray-400 font-semibold mb-4">
+        Técnico en Programación
+      </h2>
+      <p class="text-lg text-gray-300 leading-relaxed">
+        Soy un desarrollador web junior apasionado por la tecnología y la resolución de problemas. Me especializo en 
+        <span class="text-red-400 font-semibold"> JavaScript, React y Node.js</span>, y siempre estoy en busca de nuevos desafíos para seguir aprendiendo.
+      </p>
+
+      <!-- Redes Sociales -->
+      <div class="flex justify-center md:justify-start mt-4 space-x-4">
+        <a href="https://www.linkedin.com/in/mateo-gimenez-80702b309/" target="_blank" rel="noopener noreferrer">
+          <img 
+            src={linkedin.src} 
+            alt="LinkedIn"
+            class="w-10 h-10 rounded-full shadow-md transition-transform duration-300 hover:scale-110"
+          />
+        </a>
+
+        <a href="https://github.com/MateoGimenez" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
+            alt="GitHub"
+            class="w-10 h-10 rounded-full shadow-md transition-transform duration-300 hover:scale-110"
+          />
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</div>

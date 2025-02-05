@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "category": "Lenguajes",
+      "items": [
+        { "name": "JavaScript", "image": "https://c0.klipartz.com/pngpicture/87/538/sticker-png-javascript-scalable-graphics-logo-encapsulated-postscript-javascript-icon-text-logo-number-sign-web-application.png" },
+        { "name": "TypeScript", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2_979C0CYjHp3QH53N8pLqEI2Ku6g5fLTwA&s" },
+        { "name": "Python", "image": "https://w7.pngwing.com/pngs/891/677/png-transparent-python-logos-and-brands-line-filled-icon-thumbnail.png" }
+      ]
+    },
+    {
+      "category": "Frameworks y Librerías",
+      "items": [
+        { "name": "React", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbAmafdPNr9fd0KC0Z98WYEC7Wl1wYlPVf-A&s" },
+        { "name": "Node.js", "image": "https://w7.pngwing.com/pngs/493/735/png-transparent-node-js-javascript-express-js-mongodb-github-github-angle-text-logo.png" },
+        { "name": "Tailwind", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQsMjGv1FnFCZh_0mayzMeAu0f-LbicOoufA&s" }
+      ]
+    },
+    {
+      "category": "Herramientas",
+      "items": [
+        { "name": "Git", "image": "https://e7.pngegg.com/pngimages/725/26/png-clipart-github-computer-icons-repository-github-angle-git-thumbnail.png" },
+        { "name": "GitHub", "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" },
+        { "name": "MySQL", "image": "https://cdn-icons-png.flaticon.com/512/5968/5968254.png" },
+        {"name" : "MongoDB","image" : "https://e7.pngegg.com/pngimages/991/347/png-clipart-mongodb-inc-computer-icons-nosql-database-mongodb-icons-leaf-logo.png"}
+      ]
+    }
+  ]
+}

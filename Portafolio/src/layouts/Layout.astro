@@ -1,0 +1,36 @@
+---
+import Header from "@components/Header.astro"
+import Footer from "@components/Footer.astro"
+import SobreMi from '@components/SobreMi.astro'
+import Skills from '@components/Skills.astro'
+import Proyectos from "@components/Proyectos.astro"
+import '../styles/global.css'
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="descripcion" content="Portafolio como desarrolador web">
+		<title>Portafolio</title>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<SobreMi/>
+			<Skills />
+			<Proyectos />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

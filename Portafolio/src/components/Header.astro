@@ -1,11 +1,23 @@
-<header class="flex justify-center items-center p-4 bg-zinc-800 border-b border-gray-20">
-    <nav>
-        <ul class="flex space-x-6">
-            <li><a href="/" class="text-white hover:text-red-700 font-medium">Inicio</a></li>
-            <li><a href="/sobre-mi" class="text-white hover:text-red-700 font-medium">Sobre Mí</a></li>
-            <li><a href="/skills" class="text-white hover:text-red-700 font-medium">Skills</a></li>
-            <li><a href="/proyectos" class="text-white hover:text-red-700 font-medium">Proyectos</a></li>
-            <li><a href="/contacto" class="text-white hover:text-red-700 font-medium">Contacto</a></li>
-        </ul>
+<header id="header" class="fixed top-0 left-0 w-full bg-zinc-800 border-b border-gray-200 z-50 flex justify-center items-center p-4 md:p-6 h-12 md:h-16">    <nav>
+      <ul class="flex space-x-4 md:space-x-6 text-sm md:text-base">
+        <li><a href="#sobreMi" class="text-white hover:text-red-700 font-medium">Inicio</a></li>
+        <li><a href="#skills" class="text-white hover:text-red-700 font-medium">Skills</a></li>
+        <li><a href="#proyectos" class="text-white hover:text-red-700 font-medium">Proyectos</a></li>
+        <li><a href="#contacto" class="text-white hover:text-red-700 font-medium">Contacto</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
+  <script>
+    window.addEventListener("scroll", function () {
+      const header = document.getElementById("header");
+      const scrollPosition = window.scrollY; // Obtiene la posición del scroll
+  
+      // Detecta si el usuario ha desplazado más allá de la primera sección
+      if (scrollPosition > 50) { // 50px de desplazamiento
+        header.classList.add("transparent-header");
+      } else {
+        header.classList.remove("transparent-header");
+      }
+    });
+  </script>
+  

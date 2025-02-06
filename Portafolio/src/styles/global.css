@@ -15,3 +15,13 @@
   animation-delay: 3s; /* Espera 3 segundos antes de empezar */
   animation-timing-function: linear;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.transparent-header {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+

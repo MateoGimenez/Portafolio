@@ -3,14 +3,14 @@
         {
         "name" : "Clon Mercado Libre" ,
         "descripcion" : "Proyecto para aprender y repazar css ",
-        "image" : "../assets/Clon mercadoLibree.png" ,
+        "image" : "/assets/Clon mercadoLibree.png" ,
         "tecnologias" : [{"name" : "JavasScript"},{"name" : "React"} , {"name" : "CSS"}],
         "web" : "https://clon-mercado-libre-alpha.vercel.app"
         }
         ,{
         "name" : "Estacionamiento" ,
         "descripcion" : "Proyecto basado en un estacionamiento con autenticacion y gestion ",
-        "video" : "../assets/Estacionamiento.mp4" ,
+        "video" : "/assets/Estacionamiento.mp4" ,
         "tecnologias" : [{"name" : "JavasScript"},{"name" : "React"} , {"name" : "MySQL"} , {"name" : "Nodejs"}],
         "git" : "https://github.com/leo08910/lab4-tp-final"
 
@@ -18,21 +18,21 @@
         {
             "name" : "Joyeria" , 
             "descripcion" : "Proyecto pedido por un cliente para la gestion de stock de su joyeria ",
-            "video" : "../assets/joyeria.mp4" ,
+            "video" : "/assets/joyeria.mp4" ,
             "tecnologias" : [{"name" : "JavasScript"},{"name" : "React"} , {"name" : "MySQL"} , {"name" : "Nodejs"}],
             "git" : "https://github.com/MateoGimenez/Joyeria"
         } ,
         {
             "name" : "Bot WhatsApp",
             "descripcion" : "Bot de WhatsApp creado para un cliente que tiene varios emprendimientos",
-            "image" : "../assets/bot-whatsApp.png",
+            "image" : "/assets/bot-whatsApp.png",
             "tecnologias" : [{"name" : "JavasScript"},{"name" : "whatsapp-web.js"} , {"name" : "qrcode-terminal"} , {"name" : "Chalk"}],
             "git" : "https://github.com/MateoGimenez/Bot-whatsApp"
         },
         {
             "name" : "StudiocincoGym",
             "descripcion" : "Pagina para un gimnasio pedido y aprobado por el cliente",
-            "video" : "../assets/StudioCinco.mp4",
+            "video" : "/assets/StudioCinco.mp4",
             "tecnologias" : [{"name" : "JavasScript"},{"name" : "React"} , {"name" : "MySQL"} , {"name" : "Nodejs"}],
             "git" : "https://github.com/MateoGimenez"
         }

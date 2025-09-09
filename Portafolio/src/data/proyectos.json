@@ -18,8 +18,8 @@
         {
             "name" : "Joyeria" , 
             "descripcion" : "Proyecto pedido por un cliente para la gestion de stock de su joyeria ",
-            "video" : "/assets/joyeria.mp4" ,
-            "tecnologias" : [{"name" : "JavasScript"},{"name" : "React"} , {"name" : "MySQL"} , {"name" : "Nodejs"}],
+            "video" : "/assets/Joyeria.mp4" ,
+            "tecnologias" : [{"name" : "JavasScript"},{"name" : "React"} , {"name" : "MySQL"} , {"name" : "Nodejs"} ,{"name": "Crud"}],
             "git" : "https://github.com/MateoGimenez/Joyeria"
         } ,
         {

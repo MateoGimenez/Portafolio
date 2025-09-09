@@ -6,7 +6,7 @@ import proyectos from "../data/proyectos.json"
     <h1 class="text-4xl text-red-500 font-bold text-center mb-8">Mis Proyectos</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
       {proyectos.proyectos.map((proyecto, index: number) => (
-        <div  class="bg-stone-800 p-6 rounded-lg shadow-lg hover:bg-red-950">
+        <div class="bg-stone-800 p-6 rounded-lg shadow-lg hover:bg-red-950">
           <h2 class="text-2xl font-semibold mb-2">{proyecto.name}</h2>
           <p class="text-gray-400 mb-4">{proyecto.descripcion}</p>
           {proyecto.video && (
@@ -29,8 +29,11 @@ import proyectos from "../data/proyectos.json"
                 </span>
               ))}
             </div>
-            <a href={proyecto.git}><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="git"
-            class="w-10 h-10 rounded-full shadow-md transition-transform duration-300 hover:scale-110 mt-3"></a>
+            {proyecto.web ?(
+              <a href={proyecto.web}><img src="/src/assets/sitio-web.png" alt=""
+              class="w-10 h-10 rounded-full shadow-md transition-transform duration-300 hover:scale-110 mt-3"></a>
+            ) : <a href={proyecto.git}><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="git"
+                class="w-10 h-10 rounded-full shadow-md transition-transform duration-300 hover:scale-110 mt-3"></a>}
           </div>
         </div>
       ))}

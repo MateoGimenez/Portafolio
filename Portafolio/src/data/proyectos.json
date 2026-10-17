@@ -1,42 +1,112 @@
 {
-    "proyectos" : [
+  "proyectos": [
+    {
+      "name": "Joyería",
+      "descripcion": "Sistema de gestión de stock hecho a pedido para una joyería: alta, baja y edición de productos con base de datos propia.",
+      "cliente": true,
+      "video": "/Joyeria.mp4",
+      "tecnologias": [
         {
-        "name" : "Clon Mercado Libre" ,
-        "descripcion" : "Proyecto para aprender y repazar css ",
-        "image" : "/Clon mercadoLibree.png" ,
-        "tecnologias" : [{"name" : "JavasScript"},{"name" : "React"} , {"name" : "CSS"}],
-        "web" : "https://clon-mercado-libre-alpha.vercel.app"
-        }
-        ,{
-        "name" : "Estacionamiento" ,
-        "descripcion" : "Proyecto basado en un estacionamiento con autenticacion y gestion ",
-        "video" : "/Estacionamiento.mp4" ,
-        "tecnologias" : [{"name" : "JavasScript"},{"name" : "React"} , {"name" : "MySQL"} , {"name" : "Nodejs"}],
-        "git" : "https://github.com/leo08910/lab4-tp-final"
-
-        } ,
-        {
-            "name" : "Joyeria" , 
-            "descripcion" : "Proyecto pedido por un cliente para la gestion de stock de su joyeria ",
-            "video" : "/Joyeria.mp4" ,
-            "tecnologias" : [{"name" : "JavasScript"},{"name" : "React"} , {"name" : "MySQL"} , {"name" : "Nodejs"} ,{"name": "Crud"}],
-            "git" : "https://github.com/MateoGimenez/Joyeria"
-        } ,
-        {
-            "name" : "Bot WhatsApp",
-            "descripcion" : "Bot de WhatsApp creado para un cliente que tiene varios emprendimientos",
-            "image" : "/bot-whatsApp.png",
-            "tecnologias" : [{"name" : "JavasScript"},{"name" : "whatsapp-web.js"} , {"name" : "qrcode-terminal"} , {"name" : "Chalk"}],
-            "git" : "https://github.com/MateoGimenez/Bot-whatsApp"
+          "name": "JavaScript"
         },
         {
-            "name" : "StudiocincoGym",
-            "descripcion" : "Pagina para un gimnasio pedido y aprobado por el cliente",
-            "video" : "/StudioCinco.mp4",
-            "tecnologias" : [{"name" : "JavasScript"},{"name" : "React"} , {"name" : "MySQL"} , {"name" : "Nodejs"}],
-            "git" : "https://github.com/MateoGimenez"
+          "name": "React"
+        },
+        {
+          "name": "Node.js"
+        },
+        {
+          "name": "MySQL"
+        },
+        {
+          "name": "CRUD"
         }
-    
-    ]
-
+      ],
+      "git": "https://github.com/MateoGimenez/Joyeria",
+      "poster": "/posters/joyeria.jpg"
+    },
+    {
+      "name": "StudioCinco Gym",
+      "descripcion": "Sitio web para un gimnasio, diseñado junto al cliente y aprobado por él.",
+      "cliente": true,
+      "video": "/StudioCinco.mp4",
+      "tecnologias": [
+        {
+          "name": "JavaScript"
+        },
+        {
+          "name": "React"
+        },
+        {
+          "name": "Node.js"
+        },
+        {
+          "name": "MySQL"
+        }
+      ],
+      "git": "https://github.com/MateoGimenez",
+      "poster": "/posters/studiocinco.jpg"
+    },
+    {
+      "name": "Bot de WhatsApp",
+      "descripcion": "Bot de WhatsApp a medida para un cliente que maneja varios emprendimientos.",
+      "cliente": true,
+      "image": "/bot-whatsApp.png",
+      "tecnologias": [
+        {
+          "name": "JavaScript"
+        },
+        {
+          "name": "whatsapp-web.js"
+        },
+        {
+          "name": "qrcode-terminal"
+        },
+        {
+          "name": "Chalk"
+        }
+      ],
+      "git": "https://github.com/MateoGimenez/Bot-whatsApp"
+    },
+    {
+      "name": "Estacionamiento",
+      "descripcion": "Sistema de gestión para un estacionamiento, con autenticación de usuarios.",
+      "cliente": false,
+      "video": "/Estacionamiento.mp4",
+      "tecnologias": [
+        {
+          "name": "JavaScript"
+        },
+        {
+          "name": "React"
+        },
+        {
+          "name": "Node.js"
+        },
+        {
+          "name": "MySQL"
+        }
+      ],
+      "git": "https://github.com/leo08910/lab4-tp-final",
+      "poster": "/posters/estacionamiento.jpg"
+    },
+    {
+      "name": "Clon de Mercado Libre",
+      "descripcion": "Réplica de la interfaz de Mercado Libre para practicar maquetado y CSS con React.",
+      "cliente": false,
+      "image": "/Clon mercadoLibree.png",
+      "tecnologias": [
+        {
+          "name": "JavaScript"
+        },
+        {
+          "name": "React"
+        },
+        {
+          "name": "CSS"
+        }
+      ],
+      "web": "https://clon-mercado-libre-alpha.vercel.app"
+    }
+  ]
 }

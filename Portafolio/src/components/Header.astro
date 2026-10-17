@@ -1,23 +1,252 @@
-<header id="header" class="fixed top-0 left-0 w-full bg-zinc-800 border-b border-gray-200 z-50 flex justify-center items-center p-4 md:p-6 h-12 md:h-16">    <nav>
-      <ul class="flex space-x-4 md:space-x-6 text-sm md:text-base">
-        <li><a href="#sobreMi" class="text-white hover:text-red-700 font-medium">Inicio</a></li>
-        <li><a href="#skills" class="text-white hover:text-red-700 font-medium">Skills</a></li>
-        <li><a href="#proyectos" class="text-white hover:text-red-700 font-medium">Proyectos</a></li>
-        <li><a href="#contacto" class="text-white hover:text-red-700 font-medium">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-  <script>
-    window.addEventListener("scroll", function () {
-      const header = document.getElementById("header");
-      const scrollPosition = window.scrollY; // Obtiene la posición del scroll
-  
-      // Detecta si el usuario ha desplazado más allá de la primera sección
-      if (scrollPosition > 50) { // 50px de desplazamiento
-        header.classList.add("transparent-header");
-      } else {
-        header.classList.remove("transparent-header");
+---
+const paradas = [
+  { id: "inicio", label: "Inicio" },
+  { id: "skills", label: "Skills" },
+  { id: "proyectos", label: "Proyectos" },
+  { id: "contacto", label: "Contacto" },
+];
+---
+
+<header class="tablero">
+  <a href="#inicio" class="badge" aria-label="Línea Mateo, volver al inicio">
+    <span class="badge-num" aria-hidden="true">M</span>
+    <span class="badge-text">Línea Mateo</span>
+  </a>
+
+  <nav aria-label="Recorrido de la página" class="recorrido">
+    <div class="track" aria-hidden="true">
+      <div class="track-fill"></div>
+      <svg class="bus" viewBox="0 0 40 20" width="40" height="20">
+        <rect x="1" y="1" width="38" height="14" rx="3" fill="#ffb000" />
+        <rect x="1" y="9" width="38" height="2.5" fill="#c8261a" />
+        <rect x="4" y="3.5" width="5" height="4" rx="1" fill="#0b1a3a" />
+        <rect x="11" y="3.5" width="5" height="4" rx="1" fill="#0b1a3a" />
+        <rect x="18" y="3.5" width="5" height="4" rx="1" fill="#0b1a3a" />
+        <rect x="25" y="3.5" width="5" height="4" rx="1" fill="#0b1a3a" />
+        <rect x="32" y="3.5" width="5" height="8" rx="1" fill="#0b1a3a" />
+        <circle cx="10" cy="16" r="3" fill="#060f24" stroke="#ffffff" stroke-width="1.2" />
+        <circle cx="30" cy="16" r="3" fill="#060f24" stroke="#ffffff" stroke-width="1.2" />
+      </svg>
+    </div>
+    <ol class="paradas">
+      {paradas.map((p, i) => (
+        <li>
+          <a href={`#${p.id}`} data-stop={p.id} aria-current={i === 0 ? "true" : undefined}>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="label">{p.label}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+</header>
+
+<style>
+  .tablero {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 50;
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 3vw, 40px);
+    padding: 0 var(--gutter);
+    background: color-mix(in srgb, var(--navy-deep) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .badge-num {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--amber);
+    color: var(--navy);
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  .badge-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .recorrido {
+    position: relative;
+    flex: 1;
+    max-width: 620px;
+    margin-left: auto;
+    height: 100%;
+  }
+
+  /* La línea del recorrido va del centro de la primera parada al de la última */
+  .track {
+    --inset: 12.5%;
+    position: absolute;
+    left: var(--inset);
+    right: var(--inset);
+    top: 27px;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.16);
+  }
+  .track-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 100%;
+    background: var(--amber);
+    border-radius: inherit;
+    transform-origin: left;
+    transform: scaleX(var(--p, 0));
+  }
+  .bus {
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 34px;
+    height: auto;
+    transform: translateX(calc(var(--x, 0px) - 50%));
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45));
+  }
+
+  .paradas {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .paradas a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    height: 100%;
+    padding-bottom: 8px;
+    color: var(--muted-on-navy);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 150ms;
+  }
+  .dot {
+    width: 12px;
+    height: 12px;
+    margin-bottom: 4px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 3px solid rgba(255, 255, 255, 0.45);
+    transition: background-color 200ms, border-color 200ms, transform 200ms var(--ease-out);
+  }
+  .paradas a:hover { color: var(--white); }
+  .paradas a:hover .dot { border-color: var(--white); }
+  .paradas a[data-passed] .dot { background: var(--amber); border-color: var(--amber); }
+  .paradas a[aria-current="true"] { color: var(--amber); }
+  .paradas a[aria-current="true"] .dot {
+    background: var(--amber);
+    border-color: var(--white);
+    transform: scale(1.25);
+  }
+
+  @media (max-width: 640px) {
+    .badge-text { display: none; }
+    .badge-num { width: 36px; height: 36px; font-size: 1.4rem; }
+    .paradas a { font-size: 0.68rem; letter-spacing: 0.03em; }
+  }
+</style>
+
+<script>
+  const ids = ["inicio", "skills", "proyectos", "contacto"];
+  const track = document.querySelector<HTMLElement>(".track")!;
+  const links = [...document.querySelectorAll<HTMLAnchorElement>("[data-stop]")];
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let target = 0;
+  let pos = 0;
+  let vel = 0;
+  let raf = 0;
+  let last = 0;
+
+  // Progreso entre paradas: 0 = Inicio, 3 = Contacto.
+  function measure() {
+    const sections = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    if (!sections.length) return 0;
+    const y = window.scrollY + window.innerHeight * 0.35;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (window.scrollY >= max - 2) return sections.length - 1;
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const top = sections[i].offsetTop;
+      if (y >= top) {
+        const next = sections[i + 1]?.offsetTop ?? top + sections[i].offsetHeight;
+        return Math.min(sections.length - 1, i + (y - top) / Math.max(1, next - top));
       }
+    }
+    return 0;
+  }
+
+  function paint() {
+    const w = track.clientWidth;
+    // El resorte puede pasarse apenas: el colectivo no sale de la línea.
+    const p = Math.min(1, Math.max(0, pos / (ids.length - 1)));
+    track.style.setProperty("--p", String(p));
+    track.style.setProperty("--x", `${p * w}px`);
+    const current = Math.min(ids.length - 1, Math.floor(target + 0.15));
+    links.forEach((a, i) => {
+      if (i === current) a.setAttribute("aria-current", "true");
+      else a.removeAttribute("aria-current");
+      a.toggleAttribute("data-passed", pos >= i - 0.02);
     });
-  </script>
-  
+  }
+
+  // Resorte amortiguado: el colectivo frena y arranca con inercia.
+  function tick(t: number) {
+    const dt = Math.min(0.05, (t - (last || t)) / 1000);
+    last = t;
+    if (reduced) {
+      pos = target;
+    } else {
+      const k = 38;
+      const c = 2 * Math.sqrt(k) * 0.92;
+      vel += (k * (target - pos) - c * vel) * dt;
+      pos += vel * dt;
+    }
+    paint();
+    if (Math.abs(target - pos) > 0.001 || Math.abs(vel) > 0.001) raf = requestAnimationFrame(tick);
+    else {
+      pos = target;
+      vel = 0;
+      paint();
+      raf = 0;
+      last = 0;
+    }
+  }
+
+  function onScroll() {
+    target = measure();
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  window.addEventListener("load", onScroll);
+  onScroll();
+</script>

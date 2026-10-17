@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T12:00:00.000Z",
+  "title": "Design System: Línea Mateo",
+  "extensions": {
+    "colorMeta": {
+      "navy": { "role": "primary", "displayName": "Livery Navy", "tonalRamp": ["#010826", "#142444", "#2f4165", "#4e6187", "#6e82aa", "#90a5cf", "#b3caf5", "#d8efff"] },
+      "navy-deep": { "role": "neutral", "displayName": "Deep Navy", "tonalRamp": ["#030a1e", "#19253b", "#35425b", "#54617c", "#74839f", "#96a5c3", "#bacae8", "#dfefff"] },
+      "navy-soft": { "role": "neutral", "displayName": "Navy Soft", "tonalRamp": ["#01042d", "#0f2151", "#2a3f72", "#485f95", "#6881ba", "#89a4df", "#acc9ff", "#d1eeff"] },
+      "amber": { "role": "primary", "displayName": "Route Amber", "tonalRamp": ["#240000", "#4d0600", "#712a00", "#954d00", "#ba6f00", "#e09300", "#ffb81c", "#ffdd55"] },
+      "amber-soft": { "role": "primary", "displayName": "Amber Soft", "tonalRamp": ["#1d0200", "#411900", "#613800", "#835900", "#a67b00", "#ca9e2b", "#f0c257", "#ffe87e"] },
+      "yellow": { "role": "secondary", "displayName": "Skills Yellow", "tonalRamp": ["#200000", "#461200", "#693200", "#8c5400", "#b07600", "#d59a00", "#fbbe0f", "#ffe451"] },
+      "red": { "role": "primary", "displayName": "Timbre Red", "tonalRamp": ["#310000", "#610000", "#8f0000", "#b70903", "#e04132", "#ff6956", "#ff8f79", "#ffb59d"] },
+      "red-bright": { "role": "tertiary", "displayName": "Red Bright", "tonalRamp": ["#350000", "#650000", "#9a0000", "#c30000", "#ee2416", "#ff5642", "#ff7f68", "#ffa78d"] },
+      "green": { "role": "tertiary", "displayName": "Livery Green", "tonalRamp": ["#001600", "#00360c", "#00562a", "#007748", "#009a68", "#42bf8a", "#6ce4ae", "#93ffd2"] },
+      "blue": { "role": "tertiary", "displayName": "Livery Blue", "tonalRamp": ["#00003c", "#00156f", "#003a96", "#1c5cbc", "#4080e2", "#62a4ff", "#85c9ff", "#aaf0ff"] },
+      "livery-violet": { "role": "tertiary", "displayName": "Livery Violet", "tonalRamp": ["#160031", "#350060", "#522383", "#7246a8", "#9469cd", "#b78cf4", "#dbb0ff", "#ffd5ff"] },
+      "paper": { "role": "neutral", "displayName": "Boleto Paper", "tonalRamp": ["#0e0b03", "#29251a", "#464236", "#656155", "#878276", "#a9a598", "#cec9bb", "#f3eee0"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "tonalRamp": ["#010826", "#142444", "#2f4165", "#4e6187", "#6e82aa", "#90a5cf", "#b3caf5", "#d8efff"] },
+      "ink-soft": { "role": "neutral", "displayName": "Ink Soft", "tonalRamp": ["#030921", "#19243f", "#35415f", "#536180", "#7382a3", "#95a5c7", "#b9c9ed", "#deefff"] },
+      "white": { "role": "neutral", "displayName": "White", "tonalRamp": ["#0b0b0b", "#252525", "#424242", "#616161", "#828282", "#a5a5a5", "#c9c9c9", "#eeeeee"] },
+      "muted-on-navy": { "role": "neutral", "displayName": "Muted on Navy", "tonalRamp": ["#050a1b", "#1d2437", "#3a4156", "#586177", "#798299", "#9ba5bd", "#bfc9e2", "#e4eeff"] },
+      "led-off": { "role": "neutral", "displayName": "LED Off", "tonalRamp": ["#130900", "#2e2313", "#4c402f", "#6c5f4d", "#8e806d", "#b1a38f", "#d5c7b3", "#fbecd7"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero name h1 only; the largest stop on the route." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings h2: Skills, Proyectos, Contacto." },
+      "title": { "displayName": "Title", "purpose": "Project name h3 on each boleto." },
+      "body": { "displayName": "Body", "purpose": "Running copy in Archivo Variable, sentence case." },
+      "label": { "displayName": "Label", "purpose": "Stops, tags, boleto headers and the project link; uppercase, tracked." }
+    },
+    "shadows": [
+      { "name": "lifted-housing", "value": "0 18px 40px -12px rgba(0, 0, 0, 0.6)", "purpose": "LED sign housing." },
+      { "name": "lifted-window", "value": "0 24px 48px -16px rgba(0, 0, 0, 0.6)", "purpose": "Hero portrait window." },
+      { "name": "lifted-screen", "value": "0 30px 60px -24px rgba(0, 0, 0, 0.55)", "purpose": "Project screen window." },
+      { "name": "ticket-machine", "value": "0 10px 20px -8px rgba(0, 0, 0, 0.5)", "purpose": "Boletera header above each boleto." },
+      { "name": "timbre-rest", "value": "0 8px 18px -6px rgba(0, 0, 0, 0.6), inset 0 -3px 0 rgba(0, 0, 0, 0.25)", "purpose": "Timbre at rest." },
+      { "name": "paper-drop", "value": "drop-shadow(0 18px 18px rgba(0, 0, 0, 0.28))", "purpose": "Boleto paper, as a filter because the perforation mask clips box-shadow." },
+      { "name": "bus-drop", "value": "drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45))", "purpose": "Bus in the header track." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default easing for hover, press and entry transitions." },
+      { "name": "hover", "value": "150ms", "purpose": "Button and link colour and lift transitions." },
+      { "name": "field-focus", "value": "150ms", "purpose": "Field border and halo." },
+      { "name": "bus-spring", "value": "stiffness 38, damping ratio 0.92", "purpose": "Bus motion along the route header; reduced motion snaps to target." },
+      { "name": "boleto-print", "value": "1200ms linear", "purpose": "Boleto prints out of the boletera on entering a project band." },
+      { "name": "sign-in", "value": "700ms ease-out", "purpose": "LED sign entry from above on load." }
+    ],
+    "breakpoints": [
+      { "name": "tablet-narrow", "value": "640px" },
+      { "name": "hero-stack", "value": "760px" },
+      { "name": "skills-stack", "value": "820px" },
+      { "name": "split-stack", "value": "860px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ticket Button",
+      "kind": "button",
+      "refersTo": "button-ticket",
+      "description": "Primary notched amber action, used for the CV download.",
+      "html": "<a class=\"ds-btn-ticket\" href=\"#\">Descargar CV</a>",
+      "css": ".ds-btn-ticket { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; background: #ffb000; color: #0b1a3a; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; -webkit-mask: radial-gradient(circle 9px at 0 50%, #0000 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 9px at 100% 50%, #0000 98%, #000) right / 51% 100% no-repeat; mask: radial-gradient(circle 9px at 0 50%, #0000 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 9px at 100% 50%, #0000 98%, #000) right / 51% 100% no-repeat; transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), background-color 150ms; } .ds-btn-ticket:hover { background: #ffd166; transform: translateY(-2px); } .ds-btn-ticket:active { background: #ffffff; transform: translateY(1px); } .ds-btn-ticket:focus-visible { outline: 3px solid #ffb000; outline-offset: 3px; }"
+    },
+    {
+      "name": "Round Button",
+      "kind": "button",
+      "refersTo": "button-round",
+      "description": "52px circular navy action for social links.",
+      "html": "<a class=\"ds-btn-round\" href=\"#\" aria-label=\"Perfil\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8\" fill=\"currentColor\"/></svg></a>",
+      "css": ".ds-btn-round { display: inline-grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: #16295a; color: #ffffff; border: 2px solid rgba(255, 255, 255, 0.18); transition: background-color 150ms, color 150ms, transform 150ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-round svg { width: 22px; height: 22px; fill: currentColor; } .ds-btn-round:hover { background: #ffb000; color: #0b1a3a; transform: translateY(-2px); } .ds-btn-round:active { transform: translateY(1px); } .ds-btn-round:focus-visible { outline: 3px solid #ffb000; outline-offset: 3px; }"
+    },
+    {
+      "name": "Timbre",
+      "kind": "button",
+      "refersTo": "button-timbre",
+      "description": "88px round red contact submit with a steel ring; presses and turns bright while sending.",
+      "html": "<button class=\"ds-timbre\" type=\"submit\"><span class=\"ds-timbre-cap\" aria-hidden=\"true\"></span><span class=\"ds-sr\">Enviar mensaje</span></button>",
+      "css": ".ds-timbre { position: relative; flex-shrink: 0; width: 88px; height: 88px; padding: 0; border: 0; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #e5e9f2, #7d879c); box-shadow: 0 8px 18px -6px rgba(0, 0, 0, 0.6), inset 0 -3px 0 rgba(0, 0, 0, 0.25); cursor: pointer; } .ds-timbre-cap { position: absolute; inset: 12px; border-radius: 50%; background: radial-gradient(circle at 40% 32%, #ff6a5c, #c8261a 60%, #8a140c); box-shadow: 0 5px 0 #6d0f08, 0 8px 12px rgba(0, 0, 0, 0.35); transition: transform 100ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 100ms, background 200ms; } .ds-timbre:hover .ds-timbre-cap { transform: translateY(-1px); } .ds-timbre:active .ds-timbre-cap, .ds-timbre[data-pressed] .ds-timbre-cap { transform: translateY(4px); } .ds-timbre[data-pressed] .ds-timbre-cap { background: radial-gradient(circle at 40% 32%, #ffd0c9, #ff3b2a 55%, #b21c10); box-shadow: 0 1px 0 #6d0f08, 0 0 28px 6px rgba(255, 59, 42, 0.55); } .ds-timbre:disabled { cursor: progress; } .ds-timbre:focus-visible { outline: 3px solid #ffb000; outline-offset: 5px; border-radius: 50%; } .ds-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }"
+    },
+    {
+      "name": "Project Link",
+      "kind": "button",
+      "refersTo": "link-project",
+      "description": "Pill-shaped navy link on a boleto, to the live site or to the code.",
+      "html": "<a class=\"ds-link\" href=\"#\">Ver sitio</a>",
+      "css": ".ds-link { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 999px; background: #0b1a3a; color: #ffffff; text-decoration: none; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.05em; text-transform: uppercase; transition: background-color 150ms, color 150ms, transform 150ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-link:hover { background: #ffb000; color: #0b1a3a; transform: translateY(-2px); } .ds-link:active { transform: translateY(1px); } .ds-link:focus-visible { outline: 3px solid #ffb000; outline-offset: 3px; }"
+    },
+    {
+      "name": "Boleto",
+      "kind": "card",
+      "refersTo": "boleto",
+      "description": "Printed paper ticket for a project, perforated top and bottom, with a dashed header strip.",
+      "html": "<article class=\"ds-boleto\"><div class=\"ds-boleto-top\"><span>Línea M</span><span>Boleto Nº 0001</span></div><h3>Nombre del proyecto</h3><p>Descripción breve del proyecto.</p></article>",
+      "css": ".ds-boleto { padding: 30px 32px; color: #0b1a3a; background: #f4efe1; -webkit-mask: radial-gradient(circle 6px at 50% 0, #0000 97%, #000) top / 18px 51% repeat-x, radial-gradient(circle 6px at 50% 100%, #0000 97%, #000) bottom / 18px 51% repeat-x; mask: radial-gradient(circle 6px at 50% 0, #0000 97%, #000) top / 18px 51% repeat-x, radial-gradient(circle 6px at 50% 100%, #0000 97%, #000) bottom / 18px 51% repeat-x; filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.28)); } .ds-boleto-top { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 2px dashed rgba(11, 26, 58, 0.35); font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.14em; text-transform: uppercase; color: #3d4a68; } .ds-boleto h3 { margin: 18px 0 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: clamp(2.4rem, 4.6vw, 3.6rem); line-height: 0.95; text-transform: uppercase; color: #0b1a3a; } .ds-boleto p { margin: 12px 0 0; color: #3d4a68; font-size: 1.05rem; }"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Dark text field with a navy-soft stroke that turns amber on focus.",
+      "html": "<input class=\"ds-field\" type=\"text\" placeholder=\"Cómo te llamás\" />",
+      "css": ".ds-field { width: 100%; padding: 14px 16px; border-radius: 12px; border: 2px solid #16295a; background: #060f24; color: #ffffff; font: inherit; transition: border-color 150ms, box-shadow 150ms; } .ds-field::placeholder { color: #8b97b5; } .ds-field:hover { border-color: #2e4580; } .ds-field:focus { outline: none; border-color: #ffb000; box-shadow: 0 0 0 4px rgba(255, 176, 0, 0.22); } .ds-field:user-invalid { border-color: #ff3b2a; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Línea Mateo",
+    "overview": "The page is a Buenos Aires colectivo route. The navy ground is the bus livery, and each section is a stop along the line: Inicio, Skills, Proyectos, Contacto. The header carries the route itself, a four-stop line with a bus that moves along it on damped spring physics. The LED destination sign in the hero is the memorable first moment, drawn in amber dot-matrix on canvas. Projects are printed boletos on paper stock, and contact is the round red timbre you press to get off.\n\nThe personality is friendly and plain-spoken, in Spanish with rioplatense ease. Density is generous: one stop fills most of a viewport, and projects are full-bleed livery bands rather than cards in a grid. The world is literal on purpose. Objects that exist on a bus (the sign housing, the ticket machine, the window, the paper ticket, the bell) carry physical depth. Surfaces that are only print (livery bands, text) stay flat.",
+    "keyCharacteristics": [
+      "Navy livery ground with full-bleed colour bands per section and per project.",
+      "Amber dot-matrix LED sign, rendered in canvas from src/scripts/led.ts.",
+      "Paper boletos with perforated top and bottom edges.",
+      "Round red timbre as the contact submit; notched amber ticket as the primary action.",
+      "Header route line with four stops and a spring-driven bus.",
+      "Big Shoulders Display for headings and labels over Archivo Variable for body."
+    ],
+    "rules": [
+      { "name": "The Livery Rule", "body": "Every section and every project is a full-bleed band of one livery colour. Navy carries the page, yellow is the skills stop, red is the contact stop, and the project bands cycle the five livery colours in order.", "section": "colors" },
+      { "name": "The Route Colour Rule", "body": "Amber is the one signal colour. It marks the current stop, the bus, the LED characters and the primary action. Its rarity on text is the point.", "section": "colors" },
+      { "name": "The Destination Caps Rule", "body": "Headings and labels are set in Big Shoulders Display, uppercase, and never in a system display face. Body copy stays in Archivo Variable in sentence case.", "section": "typography" },
+      { "name": "The Physical Object Rule", "body": "Only objects that exist in the bus carry depth. Shadows are large and soft, and they never appear on livery bands or on text.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do set every section on a full-bleed livery band, cycling the project colours in order blue, red, amber, green, violet.",
+      "Do keep amber as the single signal colour for current state, the bus, the LED and the primary action.",
+      "Do make primary actions physical: the notched ticket for the CV and the round red timbre for contact.",
+      "Do keep print surfaces (boletos, windows) on the paper and navy stock, with perforated or framed edges.",
+      "Do use the 1180px container and --gutter for all content width."
+    ],
+    "donts": [
+      "Don't set body or heading text in Archivo or Big Shoulders in a light or pale colour on yellow or amber; navy is the ink on those grounds.",
+      "Don't introduce a hue outside the palette above.",
+      "Don't replace the perforated boleto, the notched ticket or the round timbre with flat rectangles; those shapes are the identity.",
+      "Don't set headings in a system display face.",
+      "Don't copy the hard offset shadows on the timbre cap or the skills plate. They are build defects, not the system.",
+      "Don't put a shadow on a livery band or on text."
+    ]
+  }
+}

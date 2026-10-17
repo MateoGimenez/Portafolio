@@ -1,34 +1,228 @@
-<div id="contacto" class="min-h-screen bg-gradient-to-br from-stone-950 via-red-900 to-black text-white flex justify-center items-center p-8">
-    <form action="https://formsubmit.co/matex23gimenez11@gmail.com" method="POST" class="w-full max-w-md bg-stone-800 shadow-lg rounded-lg p-8 space-y-6">
-      <h1 class="text-3xl font-bold text-red-500 text-center mb-4">Contáctame</h1>
-  
-      <div>
-        <label for="email" class="block text-white  font-semibold mb-2">Email</label>
-        <input 
-          type="email" 
-          name="email" 
-          id="email" 
-          placeholder="Introduce tu email" 
-          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 bg-gray-700"
-          required 
-        />
+<section id="contacto" class="contacto">
+  <div class="inner">
+    <div class="copy">
+      <h2>¿Te bajás acá?</h2>
+      <p>
+        Si tenés una propuesta de trabajo o un proyecto para tu negocio, contame en qué andás y te respondo por mail.
+      </p>
+      <p class="alt">
+        También me encontrás en
+        <a href="https://www.linkedin.com/in/mateo-gimenez-80702b309/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        y
+        <a href="https://github.com/MateoGimenez" target="_blank" rel="noopener noreferrer">GitHub</a>.
+      </p>
+    </div>
+
+    <form class="panel" action="https://formsubmit.co/matex23gimenez11@gmail.com" method="POST">
+      <div class="panel-led">
+        <canvas class="led" aria-hidden="true"></canvas>
+        <p class="sr-only" aria-live="polite" data-estado></p>
       </div>
-  
-      <div>
-        <label for="mensaje" class="block text-white font-semibold mb-2">Mensaje</label>
-        <textarea 
-          name="mensaje" 
-          id="mensaje" 
-          rows="4" 
-          placeholder="Escribe tu mensaje aquí" 
-          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500  bg-gray-700"
-          required 
-        ></textarea>
+
+      <input type="hidden" name="_subject" value="Nuevo mensaje desde el portafolio" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" />
+
+      <div class="campo">
+        <label for="nombre">Nombre <span>(opcional)</span></label>
+        <input type="text" name="nombre" id="nombre" autocomplete="name" placeholder="Cómo te llamás" />
       </div>
-  
-      <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-black font-bold py-3 rounded-lg transition-all duration-300">
-        Enviar mensaje
-      </button>
+      <div class="campo">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" autocomplete="email" placeholder="tu@email.com" required />
+      </div>
+      <div class="campo">
+        <label for="mensaje">Mensaje</label>
+        <textarea name="mensaje" id="mensaje" rows="5" placeholder="Contame tu idea, propuesta o proyecto" required></textarea>
+      </div>
+
+      <div class="timbre-row">
+        <button type="submit" class="timbre">
+          <span class="timbre-cap" aria-hidden="true"></span>
+          <span class="sr-only">Enviar mensaje</span>
+        </button>
+        <div class="timbre-label" aria-hidden="true">
+          <strong data-titulo>Tocá el timbre</strong>
+          <span data-sub>para enviar el mensaje</span>
+        </div>
+      </div>
     </form>
   </div>
-  
+</section>
+
+<style>
+  .contacto {
+    background: var(--red);
+    color: var(--white);
+    padding: clamp(80px, 11vw, 140px) var(--gutter);
+  }
+  .inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  h2 {
+    margin: 0;
+    font-size: clamp(3.2rem, 9vw, 7.5rem);
+  }
+  .copy p {
+    max-width: 44ch;
+    margin: 22px 0 0;
+    font-size: 1.2rem;
+    color: #ffe9e6;
+  }
+  .copy .alt { font-size: 1.05rem; }
+  .copy a { color: var(--white); font-weight: 700; text-decoration-thickness: 2px; }
+  .copy a:hover { color: var(--amber-soft); }
+
+  .panel {
+    padding: clamp(22px, 3vw, 34px);
+    border-radius: 24px;
+    background: var(--navy);
+    box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.5);
+  }
+  .panel-led {
+    margin-bottom: 26px;
+    padding: 8px;
+    border-radius: 10px;
+    background: #0a0703;
+    box-shadow: inset 0 0 0 2px #2b2418;
+  }
+  .led { display: block; width: 100%; }
+
+  .campo + .campo { margin-top: 18px; }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 650;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  label span { color: var(--muted-on-navy); text-transform: none; letter-spacing: 0; font-weight: 400; }
+  input,
+  textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 2px solid var(--navy-soft);
+    background: var(--navy-deep);
+    color: var(--white);
+    font: inherit;
+    transition: border-color 150ms, box-shadow 150ms;
+  }
+  textarea { resize: vertical; min-height: 130px; }
+  input::placeholder,
+  textarea::placeholder { color: #8b97b5; }
+  input:hover,
+  textarea:hover { border-color: #2e4580; }
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--amber);
+    box-shadow: 0 0 0 4px rgba(255, 176, 0, 0.22);
+  }
+  input:user-invalid,
+  textarea:user-invalid { border-color: var(--red-bright); }
+
+  .timbre-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  /* Timbre de parada: esmalte plano, aro y botón */
+  .timbre {
+    position: relative;
+    flex-shrink: 0;
+    width: 88px;
+    height: 88px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--paper-shade);
+    box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+  }
+  .timbre-cap {
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+    transition: transform 100ms var(--ease-out), box-shadow 150ms, background-color 150ms;
+  }
+  .timbre:hover .timbre-cap { background: #dd2f22; }
+  .timbre:active .timbre-cap,
+  .timbre[data-pressed] .timbre-cap {
+    transform: scale(0.92);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  }
+  /* Presionado: se enciende como la luz de PARADA SOLICITADA */
+  .timbre[data-pressed] .timbre-cap {
+    background: var(--red-bright);
+    box-shadow: 0 0 28px 6px rgba(255, 59, 42, 0.55);
+  }
+  .timbre:disabled { cursor: progress; }
+  .timbre:focus-visible { outline-offset: 5px; border-radius: 50%; }
+
+  .timbre-label strong {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.6rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .timbre-label span { color: var(--muted-on-navy); }
+
+  @media (max-width: 860px) {
+    .inner { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  import { LedSign } from "../scripts/led";
+
+  const form = document.querySelector<HTMLFormElement>(".contacto form")!;
+  const canvas = form.querySelector<HTMLCanvasElement>(".led")!;
+  const button = form.querySelector<HTMLButtonElement>(".timbre")!;
+  const estado = form.querySelector<HTMLElement>("[data-estado]")!;
+  const titulo = form.querySelector<HTMLElement>("[data-titulo]")!;
+  const sub = form.querySelector<HTMLElement>("[data-sub]")!;
+  const sign = new LedSign(canvas, {
+    messages: ["Próxima parada", "Contacto"],
+    targetCols: 64,
+    maxPitch: 8,
+    hold: 2200,
+  });
+
+  form.addEventListener("submit", (e) => {
+    if (button.dataset.pressed !== undefined) return;
+    e.preventDefault();
+    button.dataset.pressed = "";
+    button.disabled = true;
+    sign.show(["Parada"]);
+    titulo.textContent = "Parada solicitada";
+    sub.textContent = "Enviando tu mensaje…";
+    estado.textContent = "Parada solicitada. Enviando tu mensaje…";
+    setTimeout(() => form.submit(), 900);
+  });
+
+  // Al volver con el botón "atrás", el timbre queda listo de nuevo.
+  // Siempre: Firefox también restaura el estado "disabled" sin usar el bfcache.
+  window.addEventListener("pageshow", () => {
+    delete button.dataset.pressed;
+    button.disabled = false;
+    estado.textContent = "";
+    titulo.textContent = "Tocá el timbre";
+    sub.textContent = "para enviar el mensaje";
+    sign.show(["Próxima parada", "Contacto"]);
+  });
+</script>

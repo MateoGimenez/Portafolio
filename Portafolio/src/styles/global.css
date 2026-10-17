@@ -2,26 +2,164 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tus estilos personalizados aquí (opcional) */
+/* Línea Mateo: paleta de librea de colectivo porteño */
+:root {
+  --navy: #0b1a3a;
+  --navy-deep: #060f24;
+  --navy-soft: #16295a;
+  --amber: #ffb000;
+  --amber-soft: #ffd166;
+  --yellow: #ffc21a;
+  --red: #c8261a;
+  --red-bright: #ff3b2a;
+  --green: #1fa774;
+  --blue: #2f6fd0;
+  --paper: #f4efe1;
+  --paper-shade: #e4dcc6;
+  --ink: #0b1a3a;
+  --ink-soft: #3d4a68;
+  --white: #ffffff;
+  --muted-on-navy: #b9c3dc;
 
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+  --led-on: #ffb000;
+  --led-off: #2b2010;
 
-.animate-scroll {
-  display: flex;
-  animation: scroll 30s linear infinite;
-  animation-delay: 3s; /* Espera 3 segundos antes de empezar */
-  animation-timing-function: linear;
+  --font-display: "Big Shoulders Display", "Archivo Variable", sans-serif;
+  --font-body: "Archivo Variable", system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-window: 28px;
+  --gutter: clamp(16px, 4vw, 56px);
+  --header-h: 64px;
+
+  color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 8px);
+  background: var(--navy);
+  scrollbar-color: var(--amber) var(--navy-deep);
 }
 
-.transparent-header {
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
-  transition: background-color 0.3s ease; /* Transición suave */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
+body {
+  margin: 0;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  caret-color: var(--amber);
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--navy);
+}
+
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: var(--navy-deep); }
+::-webkit-scrollbar-thumb {
+  background: var(--amber);
+  border: 3px solid var(--navy-deep);
+  border-radius: 999px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+a { text-underline-offset: 0.2em; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  text-transform: uppercase;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  background: var(--amber);
+  color: var(--navy);
+  padding: 10px 16px;
+  font-weight: 700;
+  border-radius: 8px;
+}
+.skip-link:focus { top: 12px; }
+
+/* Bandas de librea: las franjas que recorren el costado del colectivo */
+.livery {
+  display: grid;
+  grid-template-rows: 14px 8px 14px;
+  gap: 0;
+}
+.livery > span:nth-child(1) { background: var(--red); }
+.livery > span:nth-child(2) { background: var(--amber); }
+.livery > span:nth-child(3) { background: var(--green); }
+
+/* Botón tipo boleto (acción primaria) */
+.btn-ticket {
+  --notch: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  background: var(--amber);
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-mask:
+    radial-gradient(circle var(--notch) at 0 50%, #0000 98%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 50%, #0000 98%, #000) right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle var(--notch) at 0 50%, #0000 98%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 50%, #0000 98%, #000) right / 51% 100% no-repeat;
+  transition: transform 150ms var(--ease-out), background-color 150ms;
+}
+.btn-ticket:hover { background: var(--amber-soft); transform: translateY(-2px); }
+.btn-ticket:active { transform: translateY(1px); background: var(--white); }
+
+/* Botón redondo secundario (redes) */
+.btn-round {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--navy-soft);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  transition: background-color 150ms, color 150ms, transform 150ms var(--ease-out);
+}
+.btn-round svg { width: 22px; height: 22px; fill: currentColor; }
+.btn-round:hover { background: var(--amber); color: var(--navy); transform: translateY(-2px); }
+.btn-round:active { transform: translateY(1px); }

@@ -1,4 +1,49 @@
-<footer class="flex flex-col text-center text-white bg-black h-36">
-    <p class="mb-7 m-5">© 2025 Gimenez Jorge Mateo | Desarrollador web</p>
-    <p>Gracias por visitar mi sitio. ¡Nos vemos pronto! 😊</p>
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="terminal">
+  <div class="livery" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="inner">
+    <p class="fin">Fin del recorrido</p>
+    <p class="gracias">Gracias por subirte. ¡Nos vemos en el próximo viaje!</p>
+    <div class="pie">
+      <p>© {year} Gimenez Jorge Mateo · Desarrollador web</p>
+      <a href="#inicio" class="volver">Volver al inicio</a>
+    </div>
+  </div>
 </footer>
+
+<style>
+  .terminal { background: var(--navy-deep); color: var(--white); }
+  .inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: clamp(56px, 8vw, 96px) var(--gutter) 40px;
+  }
+  .fin {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(2.6rem, 8vw, 6rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .gracias { margin: 14px 0 0; font-size: 1.15rem; color: var(--muted-on-navy); }
+  .pie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.95rem;
+    color: var(--muted-on-navy);
+  }
+  .pie p { margin: 0; }
+  .volver { color: var(--white); font-weight: 700; }
+  .volver:hover { color: var(--amber); }
+</style>

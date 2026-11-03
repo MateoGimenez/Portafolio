@@ -1,6 +1,31 @@
 {
   "proyectos": [
     {
+      "name": "MgDetailing",
+      "descripcion": "Web en producción para un taller de detailing de autos en La Rioja: landing para reservar turnos online y panel de administración con agenda, roles de usuario y servicios editables.",
+      "nuevo": true,
+      "image": "/mgdetail.jpg",
+      "tecnologias": [
+        {
+          "name": "TypeScript"
+        },
+        {
+          "name": "React"
+        },
+        {
+          "name": "Express"
+        },
+        {
+          "name": "PostgreSQL"
+        },
+        {
+          "name": "Supabase"
+        }
+      ],
+      "web": "https://mgdetail.com.ar",
+      "git": "https://github.com/MateoGimenez/MgDetail"
+    },
+    {
       "name": "Joyería",
       "descripcion": "Sistema de gestión de stock hecho a pedido para una joyería: alta, baja y edición de productos con base de datos propia.",
       "cliente": true,

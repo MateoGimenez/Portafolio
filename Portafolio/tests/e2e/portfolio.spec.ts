@@ -120,11 +120,11 @@ test.describe("skills", () => {
 });
 
 test.describe("proyectos", () => {
-  test("5 viajes llegan a la parada al entrar en vista", async ({ page }) => {
+  test("6 viajes llegan a la parada al entrar en vista", async ({ page }) => {
     await page.goto("/");
     const viajes = page.locator("article.viaje");
-    await expect(viajes).toHaveCount(5);
-    for (let i = 0; i < 5; i++) {
+    await expect(viajes).toHaveCount(6);
+    for (let i = 0; i < 6; i++) {
       const v = viajes.nth(i);
       await v.scrollIntoViewIfNeeded();
       await v.evaluate((el) => el.scrollIntoView({ block: "center", behavior: "instant" }));
@@ -134,7 +134,7 @@ test.describe("proyectos", () => {
         .poll(() => vidrio.evaluate((el) => getComputedStyle(el).transform), { timeout: 4000 })
         .toBe("none");
       await expect.poll(() => vidrio.evaluate((el) => getComputedStyle(el).opacity), { timeout: 4000 }).toBe("1");
-      await expect(v.locator("a.link", { hasText: /Ver sitio|Ver código|Ver GitHub/ })).toHaveCount(1);
+      expect(await v.locator("a.link", { hasText: /Ver sitio|Ver código|Ver GitHub/ }).count()).toBeGreaterThanOrEqual(1);
     }
   });
 
@@ -143,7 +143,7 @@ test.describe("proyectos", () => {
     const srcs = await page.$$eval("article.viaje img, article.viaje video source", (els) =>
       els.map((e) => e.getAttribute("src")!),
     );
-    expect(srcs.length).toBe(5);
+    expect(srcs.length).toBe(6);
     for (const src of srcs) {
       const res = await request.head(encodeURI(src));
       expect(res.status(), `HEAD ${src}`).toBe(200);
@@ -157,8 +157,8 @@ test.describe("reduced motion", () => {
   test("contenido visible sin animaciones y LED encendido", async ({ page }) => {
     await page.goto("/");
     const viajes = page.locator("article.viaje");
-    await expect(viajes).toHaveCount(5);
-    for (let i = 0; i < 5; i++) {
+    await expect(viajes).toHaveCount(6);
+    for (let i = 0; i < 6; i++) {
       const v = viajes.nth(i);
       expect(await v.locator(".boleto").evaluate((el) => getComputedStyle(el).transform), `boleto #${i}`).toBe("none");
       expect(await v.locator(".vidrio").evaluate((el) => getComputedStyle(el).opacity), `vidrio #${i} opacity`).toBe("1");

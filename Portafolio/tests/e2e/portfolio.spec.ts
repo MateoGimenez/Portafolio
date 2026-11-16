@@ -95,8 +95,9 @@ test.describe("hero", () => {
   test("CV descargable y redes en pestaña nueva", async ({ page, request }) => {
     await page.goto("/");
     const cv = page.locator(".hero a", { hasText: "Descargar CV" });
-    await expect(cv).toHaveAttribute("href", "/Curriculum 2025.pdf");
-    const res = await request.head(encodeURI("/Curriculum 2025.pdf"));
+    await expect(cv).toHaveAttribute("href", "/cv-mateo-gimenez.pdf");
+    await expect(cv).toHaveAttribute("download", /\.pdf$/);
+    const res = await request.head("/cv-mateo-gimenez.pdf");
     expect(res.status()).toBe(200);
 
     for (const host of ["linkedin.com", "github.com"]) {

@@ -1,9 +1,32 @@
 {
   "proyectos": [
     {
+      "name": "Chacho Attack",
+      "descripcion": "Videojuego beat 'em up en pixel art ambientado en La Rioja, hecho en equipo de cinco. El Chacho Peñaloza despierta de su estatua y recorre la Catedral, el Superdomo y la Chaya enfrentando jefes históricos. Modo de 1 o 2 jugadores, controles táctiles para celular.",
+      "nuevo": true,
+      "video": "/ChachoAttack.mp4",
+      "poster": "/posters/chacho-attack.jpg",
+      "tecnologias": [
+        {
+          "name": "Godot 4"
+        },
+        {
+          "name": "GDScript"
+        },
+        {
+          "name": "Shaders"
+        },
+        {
+          "name": "Pixel Art"
+        }
+      ],
+      "web": "https://mateogimenez.itch.io/chacho-attack",
+      "webLabel": "Descargar juego",
+      "git": "https://github.com/MateoGimenez/Chacho-Attack"
+    },
+    {
       "name": "MgDetailing",
       "descripcion": "Web en producción para un taller de detailing de autos en La Rioja: landing para reservar turnos online y panel de administración con agenda, roles de usuario y servicios editables.",
-      "nuevo": true,
       "image": "/mgdetail.jpg",
       "tecnologias": [
         {

@@ -12,7 +12,7 @@ const esRepo = (url?: string) => !!url && new URL(url).pathname.split("/").filte
 <section id="proyectos" class="proyectos">
   <div class="proy-head">
     <h2>Proyectos</h2>
-    <p>Cada viaje, un boleto. Arranco por el más reciente, MgDetailing, ya en producción. Tres más los hice para clientes; los otros, para aprender y probar ideas.</p>
+    <p>Cada viaje, un boleto. Arranco por el más reciente, Chacho Attack, un videojuego hecho en equipo; después MgDetailing, ya en producción. Tres más los hice para clientes; los otros, para aprender y probar ideas.</p>
   </div>
 
   {data.proyectos.map((p, i) => (
@@ -35,7 +35,7 @@ const esRepo = (url?: string) => !!url && new URL(url).pathname.split("/").filte
                   {p.web && (
                     <a class="link" href={p.web} target="_blank" rel="noopener noreferrer">
                       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14zM5 5h6v2H5v12h12v-6h2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" /></svg>
-                      Ver sitio
+                      {p.webLabel ?? "Ver sitio"}
                       <span class="sr-only">de {p.name} (se abre en otra pestaña)</span>
                     </a>
                   )}

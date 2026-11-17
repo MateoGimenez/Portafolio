@@ -40,8 +40,8 @@ Visitors arrive from LinkedIn, the CV or a direct link, on desktop and phone. De
 ## Evidence on Hand
 
 - Profile photo `public/imgCurriculum.jpg`, CV `public/Curriculum 2025.pdf`.
-- Project media: `public/Clon mercadoLibree.png`, `public/bot-whatsApp.png`, `public/Estacionamiento.mp4`, `public/Joyeria.mp4`, `public/StudioCinco.mp4`.
-- Links: LinkedIn https://www.linkedin.com/in/mateo-gimenez-80702b309/, GitHub https://github.com/MateoGimenez.
+- Project media: `public/clon-mercado-libre.png`, `public/bot-whatsApp.png`, `public/Estacionamiento.mp4`, `public/Joyeria.mp4`, `public/StudioCinco.mp4`.
+- Links: LinkedIn https://www.linkedin.com/in/mateo-gimenez-dev/, GitHub https://github.com/MateoGimenez.
 - No testimonials, client logos or metrics exist; do not fabricate them.
 
 ## Product Principles

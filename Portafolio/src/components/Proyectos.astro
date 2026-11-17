@@ -58,9 +58,13 @@ const esRepo = (url?: string) => !!url && new URL(url).pathname.split("/").filte
         <figure class="vidrio">
           {p.video && (
             <video controls preload="none" poster={p.poster} playsinline aria-label={`Video del proyecto ${p.name}`}>
-              <source src={p.video} type="video/mp4" />
-              Tu navegador no puede reproducir este video.
+              <source src={p.video} type='video/mp4; codecs="avc1.640028"' />
+              {/* Navegadores sin <video>: se ve la imagen de respaldo */}
+              <img src={p.poster} alt={`Captura del proyecto ${p.name}`} loading="lazy" />
             </video>
+          )}
+          {p.video && p.poster && (
+            <img class="respaldo" src={p.poster} alt={`Captura del proyecto ${p.name}`} loading="lazy" hidden />
           )}
           {p.image && (
             <img src={p.image} alt={`Captura del proyecto ${p.name}`} loading="lazy" />
@@ -257,6 +261,7 @@ const esRepo = (url?: string) => !!url && new URL(url).pathname.split("/").filte
     border-radius: calc(var(--radius-window) - 12px);
     background: #000;
   }
+  .vidrio img[hidden] { display: none; }
   .vidrio img[src*="bot"] {
     object-fit: contain;
     background: var(--white);
@@ -315,4 +320,17 @@ const esRepo = (url?: string) => !!url && new URL(url).pathname.split("/").filte
     { threshold: 0.25 },
   );
   viajes.forEach((v) => io.observe(v));
+
+  // Si el video no se puede cargar o reproducir, mostrar la imagen de respaldo en su lugar.
+  document.querySelectorAll<HTMLVideoElement>(".vidrio video").forEach((video) => {
+    const respaldo = video.parentElement?.querySelector<HTMLImageElement>("img.respaldo");
+    if (!respaldo) return;
+    const usarRespaldo = () => {
+      video.remove();
+      respaldo.hidden = false;
+    };
+    if (!video.canPlayType("video/mp4")) return usarRespaldo();
+    video.addEventListener("error", usarRespaldo);
+    video.querySelector("source")?.addEventListener("error", usarRespaldo);
+  });
 </script>

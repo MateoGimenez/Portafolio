@@ -4,8 +4,7 @@
       "category": "Lenguajes",
       "items": [
         { "name": "JavaScript", "icon": "siJavascript" },
-        { "name": "TypeScript", "icon": "siTypescript" },
-        { "name": "Python", "icon": "siPython" }
+        { "name": "TypeScript", "icon": "siTypescript" }
       ]
     },
     {

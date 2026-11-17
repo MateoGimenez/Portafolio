@@ -92,7 +92,6 @@
           "name": "MySQL"
         }
       ],
-      "git": "https://github.com/MateoGimenez",
       "poster": "/posters/studiocinco.jpg"
     },
     {
@@ -142,7 +141,7 @@
       "name": "Clon de Mercado Libre",
       "descripcion": "Réplica de la interfaz de Mercado Libre para practicar maquetado y CSS con React.",
       "cliente": false,
-      "image": "/Clon mercadoLibree.png",
+      "image": "/clon-mercado-libre.png",
       "tecnologias": [
         {
           "name": "JavaScript"

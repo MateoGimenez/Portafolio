@@ -110,11 +110,11 @@ test.describe("hero", () => {
 });
 
 test.describe("skills", () => {
-  test("10 skills con icono svg", async ({ page }) => {
+  test("9 skills con icono svg", async ({ page }) => {
     await page.goto("/");
     const items = page.locator("#skills li");
-    await expect(items).toHaveCount(10);
-    for (let i = 0; i < 10; i++) {
+    await expect(items).toHaveCount(9);
+    for (let i = 0; i < 9; i++) {
       await expect(items.nth(i).locator("svg path"), `skill #${i} sin svg`).toHaveCount(1);
     }
   });
@@ -135,13 +135,38 @@ test.describe("proyectos", () => {
         .poll(() => vidrio.evaluate((el) => getComputedStyle(el).transform), { timeout: 4000 })
         .toBe("none");
       await expect.poll(() => vidrio.evaluate((el) => getComputedStyle(el).opacity), { timeout: 4000 }).toBe("1");
-      expect(await v.locator("a.link", { hasText: /Ver sitio|Descargar juego|Ver código|Ver GitHub/ }).count()).toBeGreaterThanOrEqual(1);
+      // Los links de código apuntan a un repo, no al perfil de GitHub.
+      for (const href of await v.locator('a.link[href*="github.com"]').evaluateAll((els) => els.map((e) => e.getAttribute("href")!))) {
+        expect(new URL(href).pathname.split("/").filter(Boolean).length, `link a perfil: ${href}`).toBeGreaterThanOrEqual(2);
+      }
     }
+  });
+
+  test("videos: arrancan, tienen poster y caen a la imagen de respaldo si fallan", async ({ page }) => {
+    await page.goto("/");
+    const videos = page.locator("article.viaje video");
+    await expect(videos).toHaveCount(4);
+    for (const v of await videos.all()) {
+      await expect(v).toHaveAttribute("poster", /\.jpg$/);
+    }
+    // El primero se puede reproducir (metadata cargada al pedirla).
+    const first = videos.first();
+    await first.evaluate((el: HTMLVideoElement) => { el.preload = "metadata"; el.load(); });
+    await expect.poll(() => first.evaluate((el: HTMLVideoElement) => el.readyState), { timeout: 10000 }).toBeGreaterThanOrEqual(1);
+
+    // Si la fuente falla, el video se reemplaza por la imagen de respaldo.
+    await page.route("**/*.mp4", (route) => route.abort());
+    await page.reload();
+    // Chacho Attack (primer proyecto) tiene video.
+    const vidrio = page.locator("article.viaje").first().locator(".vidrio");
+    await vidrio.locator("video").evaluate((el: HTMLVideoElement) => { el.preload = "auto"; el.load(); });
+    await expect(vidrio.locator("img.respaldo")).toBeVisible({ timeout: 10000 });
+    await expect(vidrio.locator("video")).toHaveCount(0);
   });
 
   test("imágenes y videos responden 200", async ({ page, request }) => {
     await page.goto("/");
-    const srcs = await page.$$eval("article.viaje img, article.viaje video source", (els) =>
+    const srcs = await page.$$eval("article.viaje .vidrio > img:not(.respaldo), article.viaje video source", (els) =>
       els.map((e) => e.getAttribute("src")!),
     );
     expect(srcs.length).toBe(7);
@@ -166,6 +191,20 @@ test.describe("reduced motion", () => {
       expect(await v.locator(".vidrio").evaluate((el) => getComputedStyle(el).transform), `vidrio #${i} transform`).toBe("none");
     }
     await expect.poll(() => litAmberPixels(page, ".hero .led"), { timeout: 4000 }).toBeGreaterThan(50);
+  });
+});
+
+test.describe("links de contacto", () => {
+  test("LinkedIn actualizado y email visible", async ({ page }) => {
+    await page.goto("/");
+    const linkedin = page.locator('a[href*="linkedin.com"]');
+    await expect(linkedin).toHaveCount(2);
+    for (const a of await linkedin.all()) {
+      await expect(a).toHaveAttribute("href", "https://www.linkedin.com/in/mateo-gimenez-dev/");
+    }
+    const mail = page.locator('#contacto a[href^="mailto:"]');
+    await expect(mail).toBeVisible();
+    await expect(mail).toContainText("@gmail.com");
   });
 });
 
